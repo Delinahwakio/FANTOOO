@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fantooo Platform
+
+An enterprise-grade fantasy chat platform built with Next.js 14, TypeScript, Supabase, and Tailwind CSS.
+
+## Overview
+
+Fantooo is a sophisticated platform where real users engage with fictional profiles managed by trained operators. The platform features real-time chat, intelligent operator assignment, dynamic pricing, payment processing, and comprehensive admin controls.
+
+## Tech Stack
+
+- **Frontend**: Next.js 14 (App Router), React 18, TypeScript
+- **Styling**: Tailwind CSS with custom glassmorphism design system
+- **Backend**: Supabase (PostgreSQL, Auth, Realtime, Edge Functions)
+- **State Management**: Zustand, React Query
+- **Payments**: Paystack
+- **Maps**: Google Maps API
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ and npm
+- Supabase account
+- Paystack account (for payments)
+- Google Maps API key (for geocoding)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd fantooo-platform
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up environment variables:
+```bash
+cp .env.example .env.local
+```
+
+4. Configure your `.env.local` file with:
+   - Supabase URL and keys
+   - Admin setup token
+   - Paystack keys
+   - Google Maps API key
+
+### Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a production build:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+fantooo-platform/
+├── app/                    # Next.js app directory
+├── components/             # React components (to be created)
+├── lib/
+│   ├── supabase/          # Supabase client configuration
+│   ├── hooks/             # Custom React hooks
+│   ├── utils/             # Utility functions
+│   └── types/             # TypeScript type definitions
+├── supabase/              # Database migrations and functions (to be created)
+└── public/                # Static assets
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Features
 
-## Deploy on Vercel
+- **User Management**: Registration, authentication, profile management
+- **Real-Time Chat**: WebSocket-based messaging with sub-100ms latency
+- **Credit System**: Virtual currency for paid messages
+- **Operator Dashboard**: Three-panel interface for managing conversations
+- **Admin Panel**: Comprehensive platform management tools
+- **Payment Processing**: Secure credit purchases via Paystack
+- **Analytics**: Platform-wide metrics and reporting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Development Workflow
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project follows a spec-driven development approach. See `.kiro/specs/fantooo-platform/` for:
+- `requirements.md` - Feature requirements
+- `design.md` - Technical design
+- `tasks.md` - Implementation tasks
+
+## License
+
+Private and confidential.
+
+## Support
+
+For questions or issues, contact the development team.

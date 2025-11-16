@@ -11,17 +11,9 @@ export type Json =
 
 export interface Database {
   public: {
-    Tables: {
-      // Tables will be defined here after database setup
-    }
-    Views: {
-      // Views will be defined here
-    }
-    Functions: {
-      // Functions will be defined here
-    }
-    Enums: {
-      // Enums will be defined here
-    }
+    Tables: Record<string, never>
+    Views: Record<string, never>
+    Functions: Record<string, never>
+    Enums: Record<string, never>
   }
 }
