@@ -119,3 +119,52 @@ export function useOperatorChats() {
     refetchInterval: 10000, // Refetch every 10 seconds
   })
 }
+
+/**
+ * Hook to fetch operator settings
+ */
+export function useOperatorSettings() {
+  return useQuery({
+    queryKey: ['operator', 'settings'],
+    queryFn: async () => {
+      const response = await fetch('/api/operator/settings')
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch operator settings')
+      }
+      
+      return response.json()
+    },
+  })
+}
+
+/**
+ * Hook to update operator settings
+ */
+export function useUpdateOperatorSettings() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: async (updates: { specializations?: string[] }) => {
+      const response = await fetch('/api/operator/settings', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updates),
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.error || 'Failed to update settings')
+      }
+
+      return response.json()
+    },
+    onSuccess: () => {
+      // Invalidate operator settings to refetch
+      queryClient.invalidateQueries({ queryKey: ['operator', 'settings'] })
+      queryClient.invalidateQueries({ queryKey: ['operator', 'stats'] })
+    },
+  })
+}
