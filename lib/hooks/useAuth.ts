@@ -7,8 +7,6 @@ import {
   signIn as authSignIn, 
   signUp as authSignUp, 
   signOut as authSignOut,
-  getClientUser,
-  getClientSession,
 } from '@/lib/supabase/auth'
 import type { 
   UserRole, 
@@ -111,8 +109,8 @@ export function useAuth() {
   useEffect(() => {
     // Get initial session
     const initializeAuth = async () => {
-      const session = await getClientSession()
-      const user = await getClientUser()
+      const { data: { session } } = await supabase.auth.getSession()
+      const { data: { user } } = await supabase.auth.getUser()
       await updateAuthState(user, session)
     }
 

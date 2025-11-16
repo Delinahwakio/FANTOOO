@@ -1,5 +1,4 @@
 import { createClient as createBrowserClient } from './client'
-import { createClient as createServerClient } from './server'
 
 /**
  * Authentication utilities for Supabase Auth
@@ -160,46 +159,24 @@ export async function signOut(): Promise<{ error: { message: string; status?: nu
 
 /**
  * Get the current session (server-side)
- * @returns Session object or null if not authenticated
+ * Note: This function should only be used in Server Components or API routes
+ * For client-side, use getClientSession instead
  */
 export async function getSession() {
-  const supabase = await createServerClient()
-  
-  try {
-    const { data: { session }, error } = await supabase.auth.getSession()
-
-    if (error) {
-      console.error('Error getting session:', error)
-      return null
-    }
-
-    return session
-  } catch (error) {
-    console.error('Unexpected error getting session:', error)
-    return null
-  }
+  // This function is for server-side use only
+  // Import createClient from './server' dynamically when needed
+  throw new Error('getSession should only be used in Server Components. Use getClientSession for client-side.')
 }
 
 /**
  * Get the current user (server-side)
- * @returns User object or null if not authenticated
+ * Note: This function should only be used in Server Components or API routes
+ * For client-side, use getClientUser instead
  */
 export async function getUser() {
-  const supabase = await createServerClient()
-  
-  try {
-    const { data: { user }, error } = await supabase.auth.getUser()
-
-    if (error) {
-      console.error('Error getting user:', error)
-      return null
-    }
-
-    return user
-  } catch (error) {
-    console.error('Unexpected error getting user:', error)
-    return null
-  }
+  // This function is for server-side use only
+  // Import createClient from './server' dynamically when needed
+  throw new Error('getUser should only be used in Server Components. Use getClientUser for client-side.')
 }
 
 /**
@@ -248,11 +225,11 @@ export async function getClientUser() {
 
 /**
  * Check if user is authenticated (server-side)
- * @returns Boolean indicating authentication status
+ * Note: This function should only be used in Server Components or API routes
+ * For client-side, use isClientAuthenticated instead
  */
 export async function isAuthenticated(): Promise<boolean> {
-  const session = await getSession()
-  return session !== null
+  throw new Error('isAuthenticated should only be used in Server Components. Use isClientAuthenticated for client-side.')
 }
 
 /**
