@@ -182,7 +182,12 @@ All tasks reference specific requirements from the requirements document and are
   
   - _Requirements: 2.1-2.5 (User Registration)_
 
-- [ ] 12. Create user registration business logic
+- [x] 12. Create user registration business logic
+
+
+
+
+
   - Implement username uniqueness check with debouncing
   - Implement age validation (18+ enforcement)
   - Implement location validation with geocoding
@@ -191,7 +196,12 @@ All tasks reference specific requirements from the requirements document and are
   - Write user registration handler with transaction safety
   - _Requirements: 2.1-2.5 (User Registration), 22.1-22.5 (Location Validation), 23.1-23.5 (Age Verification)_
 
-- [ ] 13. Implement credit calculation system
+- [x] 13. Implement credit calculation system
+
+
+
+
+
   - Create credit calculation utility in lib/utils/credits.ts
   - Implement calculateMessageCost function with all multipliers (time, tier, featured)
   - Implement timezone handling for EAT (Africa/Nairobi)
@@ -200,7 +210,12 @@ All tasks reference specific requirements from the requirements document and are
   
   - _Requirements: 6.1-6.5 (Message Cost Calculation)_
 
-- [ ] 14. Implement message sending with transaction safety
+- [x] 14. Implement message sending with transaction safety
+
+
+
+
+
   - Create sendMessage function with database transaction
   - Implement row locking (SELECT FOR UPDATE) to prevent race conditions
   - Implement credit deduction within transaction
@@ -209,7 +224,10 @@ All tasks reference specific requirements from the requirements document and are
   - Handle InsufficientCreditsError
   - _Requirements: 7.1-7.5 (Race Condition Prevention), 4.1-4.5 (Real-Time Chat)_
 
-- [ ] 15. Implement chat creation and management
+- [-] 15. Implement chat creation and management
+
+
+
   - Create createChat function with duplicate prevention
   - Implement getChat function with user validation
   - Implement closeChat function with reason tracking
@@ -218,17 +236,27 @@ All tasks reference specific requirements from the requirements document and are
   - _Requirements: 4.1-4.5 (Real-Time Chat), 24.1-24.5 (Duplicate Chat Prevention)_
 
 
-- [ ] 16. Implement operator assignment and queue management
+- [x] 16. Implement operator assignment and queue management
+
+
+
+
+
   - Create addToQueue function with priority calculation
   - Implement priority scoring algorithm (user tier, wait time, VIP status)
   - Create assignOperator function with skill matching
   - Implement operator availability checking
-  - Implement workload balancing (max 5 concurrent chats)
+  - Implement workload balancing (max 1 concurrent chat)
   - Create reassignChat function with loop prevention (max 3 attempts)
   - Implement chat escalation after max reassignments
   - _Requirements: 8.1-8.5 (Operator Assignment), 9.1-9.5 (Chat Reassignment)_
 
-- [ ] 17. Implement payment processing with Paystack
+- [x] 17. Implement payment processing with Paystack
+
+
+
+
+
   - Create Paystack integration utilities in lib/payment/paystack.ts
   - Implement initializePayment function with package price locking
   - Implement verifyPayment function
@@ -237,14 +265,24 @@ All tasks reference specific requirements from the requirements document and are
   - Handle duplicate webhook processing
   - _Requirements: 5.1-5.5 (Credit System), 16.1-16.5 (Payment Idempotency)_
 
-- [ ] 18. Create Supabase Edge Functions - Part 1: Admin and User Management
+- [x] 18. Create Supabase Edge Functions - Part 1: Admin and User Management
+
+
+
+
+
   - Create bootstrap-first-admin Edge Function with setup token validation
   - Create delete-user-account Edge Function with GDPR compliance (anonymize messages, archive data, calculate refund)
   - Create delete-operator-account Edge Function with active chat checking
   
   - _Requirements: 1.1-1.5 (Admin Bootstrap), 14.1-14.5 (User Deletion), 15.1-15.5 (Operator Deletion)_
 
-- [ ] 19. Create Supabase Edge Functions - Part 2: Payment and Automation
+- [x] 19. Create Supabase Edge Functions - Part 2: Payment and Automation
+
+
+
+
+
   - Create process-payment Edge Function with webhook handling and idempotency
   - Create reconcile-payments Edge Function for manual payment reconciliation
   - Create auto-close-inactive-chats Edge Function (scheduled hourly)
@@ -252,7 +290,12 @@ All tasks reference specific requirements from the requirements document and are
  
   - _Requirements: 5.1-5.5 (Credit System), 10.1-10.5 (Chat Timeout), 17.1-17.5 (Payment Reconciliation)_
 
-- [ ] 20. Implement credit refund system
+- [x] 20. Implement credit refund system
+
+
+
+
+
   - Create processRefund function with audit trail
   - Implement refund reason validation
   - Create refund approval workflow

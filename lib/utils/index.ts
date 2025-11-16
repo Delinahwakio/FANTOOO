@@ -75,3 +75,10 @@ export function truncate(text: string, length: number): string {
   if (text.length <= length) return text
   return text.slice(0, length) + '...'
 }
+
+// Re-export validation utilities
+export * from './validation'
+export * from './geocoding'
+export * from './email'
+export * from './age-verification'
+export * from './credits'
