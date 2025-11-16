@@ -167,14 +167,19 @@ All tasks reference specific requirements from the requirements document and are
 
 ## Phase 2: Authentication and Core Backend Logic
 
-- [ ] 11. Implement authentication system with Supabase Auth
+- [x] 11. Implement authentication system with Supabase Auth
+
+
+
+
+
   - Create authentication utilities in lib/supabase/auth.ts
   - Implement signUp function with email/password
   - Implement signIn function with email/password
   - Implement signOut function
   - Implement getSession function for server-side
   - Create middleware for protected routes
-  - Test authentication flow
+  
   - _Requirements: 2.1-2.5 (User Registration)_
 
 - [ ] 12. Create user registration business logic
@@ -192,7 +197,7 @@ All tasks reference specific requirements from the requirements document and are
   - Implement timezone handling for EAT (Africa/Nairobi)
   - Implement peak/off-peak hour detection
   - Implement tier discount calculation
-  - Write unit tests for credit calculations
+  
   - _Requirements: 6.1-6.5 (Message Cost Calculation)_
 
 - [ ] 14. Implement message sending with transaction safety
@@ -209,7 +214,7 @@ All tasks reference specific requirements from the requirements document and are
   - Implement getChat function with user validation
   - Implement closeChat function with reason tracking
   - Implement updateChatMetrics function (message count, credits spent)
-  - Test chat lifecycle
+  
   - _Requirements: 4.1-4.5 (Real-Time Chat), 24.1-24.5 (Duplicate Chat Prevention)_
 
 
@@ -236,7 +241,7 @@ All tasks reference specific requirements from the requirements document and are
   - Create bootstrap-first-admin Edge Function with setup token validation
   - Create delete-user-account Edge Function with GDPR compliance (anonymize messages, archive data, calculate refund)
   - Create delete-operator-account Edge Function with active chat checking
-  - Test Edge Functions locally
+  
   - _Requirements: 1.1-1.5 (Admin Bootstrap), 14.1-14.5 (User Deletion), 15.1-15.5 (Operator Deletion)_
 
 - [ ] 19. Create Supabase Edge Functions - Part 2: Payment and Automation
@@ -244,7 +249,7 @@ All tasks reference specific requirements from the requirements document and are
   - Create reconcile-payments Edge Function for manual payment reconciliation
   - Create auto-close-inactive-chats Edge Function (scheduled hourly)
   - Create escalate-problematic-chats Edge Function (scheduled every 15 minutes)
-  - Test Edge Functions locally
+ 
   - _Requirements: 5.1-5.5 (Credit System), 10.1-10.5 (Chat Timeout), 17.1-17.5 (Payment Reconciliation)_
 
 - [ ] 20. Implement credit refund system
@@ -252,7 +257,7 @@ All tasks reference specific requirements from the requirements document and are
   - Implement refund reason validation
   - Create refund approval workflow
   - Implement credit addition with transaction safety
-  - Create user notification for refunds
+ 
   - _Requirements: 18.1-18.5 (Credit Refund Processing)_
 
 ---
